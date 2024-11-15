@@ -1,0 +1,6 @@
+[wokwi]
+version = 1
+firmware = ".pio/build/esp32dev/firmware.bin"   # Ruta al archivo binario generado
+elf = ".pio/build/esp32dev/firmware.elf"         # Ruta al archivo ELF para depuración
+rfc2217ServerPort = 4000                         # Puerto para la conexión al puerto serie
+libraries = ["DHT sensor library for ESPx", "LiquidCrystal I2C"]  # Lista de bibliotecas utilizadas
