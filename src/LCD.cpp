@@ -12,10 +12,14 @@ void LCD::setup() {
 }
 
 // Mostrar datos en la pantalla LCD
-void LCD::displayData(const TempAndHumidity& data, float distance) {
+void LCD::displayData(const TempAndHumidity& data, float distance, float oxygenLevel) {
   lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Temp: " + String(data.temperature, 2) + "C");
-  lcd.setCursor(0, 1);
-  lcd.print("Hum: " + String(data.humidity, 1) + "% Dist: " + String(distance, 1) + "cm");
+    lcd.setCursor(0, 0);
+    lcd.print("Temp: " + String(data.temperature, 2) + "C");
+    lcd.setCursor(0, 1);
+    lcd.print("Hum: " + String(data.humidity, 1) + "%");
+    lcd.setCursor(0, 2);
+    lcd.print("Dist: " + String(distance, 2) + "cm");
+    lcd.setCursor(0, 3);
+    lcd.print("Oxy: " + String(oxygenLevel, 2) + "L");
 }

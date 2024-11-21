@@ -7,7 +7,7 @@
 class LCD {
 public:
   static void setup();
-  static void displayData(const TempAndHumidity& data, float distance);
+  static void displayData(const TempAndHumidity& data, float distance, float oxygenLevel);
 };
 
 #endif
