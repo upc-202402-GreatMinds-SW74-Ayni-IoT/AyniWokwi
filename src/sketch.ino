@@ -1,13 +1,13 @@
 #include "DHTSensor.h"
 #include "DistanceSensor.h"
 #include "WiFiHandler.h"
+#include "HttpHandler.h"
 #include "LCD.h"
 #include "OxygenSensor.h"
 #include "RelayModule.h"
 #include <ArduinoJson.h>
 #include <HTTPClient.h>
 
-// Estructura para límites recomendados
 struct RecommendedLimits {
     float recommendedTemperature;
     float recommendedHumidity;
@@ -98,6 +98,9 @@ void loop() {
         Serial.println("Humedad: " + String(data.humidity, 1) + "%");
         Serial.println("Distancia: " + String(distance, 2) + "cm");
         Serial.println("Nivel de oxígeno: " + String(OxygenSensor::read()) + "L");
+
+        String jsonPayload = createJSONPayload(data.temperature, data.humidity, distance, oxygenLevel);
+        sendData(jsonPayload);
     } else {
         Serial.println("Error al leer los datos del sensor DHT.");
     }

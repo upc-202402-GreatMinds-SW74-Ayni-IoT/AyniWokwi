@@ -1,12 +1,10 @@
 #include "HTTPHandler.h"
 #include <HTTPClient.h>
 
-// Crear JSON con los datos
-String createJSONPayload(float temperature, float humidity, float distance) {
-    return "{\"cropId\": 1, \"temperature\":" + String(temperature, 2) + ",\"humidity\":" + String(humidity, 1) + ",\"oxygen\": 0, \"waterLevel\":" + String(distance, 1) + "}";
+String createJSONPayload(float temperature, float humidity, float distance, float oxygenLevel) {
+    return "{\"cropId\": 1, \"temperature\":" + String(temperature, 2) + ",\"humidity\":" + String(humidity, 1) + ",\"oxygen\":" + String(oxygenLevel, 1) + ", \"waterLevel\":" + String(distance, 1) + "}";
 }
 
-// Enviar datos al servidor
 void sendData(const String& jsonPayload) {
   Serial.println("Enviando datos al servidor");
     HTTPClient http;

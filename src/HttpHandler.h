@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-String createJSONPayload(float temperature, float humidity, float distance);
+String createJSONPayload(float temperature, float humidity, float distance, float oxygenLevel);
 void sendData(const String& jsonPayload);
 
 #endif
